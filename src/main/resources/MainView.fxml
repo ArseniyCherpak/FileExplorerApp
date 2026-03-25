@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.MainController">
+    <top>
+        <HBox spacing="10">
+            <TextField fx:id="searchField" promptText="Поиск по тегам или имени..." onAction="#handleSearch" />
+            <Button text="Редактировать теги" onAction="#handleEditTags" />
+            <Label fx:id="addressLabel" />
+        </HBox>
+    </top>
+    <left>
+        <TreeView fx:id="navigationTree" />
+    </left>
+    <center>
+        <TableView fx:id="fileTable">
+            <columns>
+                <TableColumn fx:id="nameColumn" text="Имя">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="path" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tagsColumn" text="Теги">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="tags" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
